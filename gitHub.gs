@@ -6,8 +6,7 @@ function getHub() {
   var options = {
 
     'header': "Accept: application/vnd.github+json",
-    //'header': "User-Agent' : 'Zoiodois", //Not necesary
-    'method': 'GET', //-> Not accept payload
+    'method': 'GET', //-> Don't accept payload
     'contentType': 'application/json',
   };
   var url = 'https://api.github.com/octocat'
@@ -21,7 +20,6 @@ function getHub() {
 function tokenAuthentication() {
   // Token to be veriefied
   var accessToken = returnGitToken();
-  Logger.log(accessToken)
 
   // Endpoint of API GitHub. User refers to the token User 
   var url = "https://api.github.com/user";
@@ -176,7 +174,7 @@ function getIssueRequestByNumber() {
   var userAgent = returnUserAgent();
   var repoOwner = returnOwner();
   var repo = returnRepo();
-  var issueNumber = 3; //Make it dynamic
+  var issueNumber = 1; //Make it dynamic
 
   // Endpoint of API GitHub for Issues sent by user
   var url = "https://api.github.com/repos/" + repoOwner + "/" + repo + "/issues/"+ issueNumber;
@@ -186,8 +184,8 @@ function getIssueRequestByNumber() {
   var options = {
     headers: {
       "Accept": "application/vnd.github+json",
-      "User-Agent": userAgent,
-      Authorization: "Bearer " + accessToken
+     //"User-Agent": userAgent,
+      //Authorization: "Bearer " + accessToken
     },
     method: "GET",
     muteHttpExceptions: true

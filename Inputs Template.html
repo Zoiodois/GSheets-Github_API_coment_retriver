@@ -1,0 +1,91 @@
+<html>
+
+<head>
+  <title>Contact Form</title>
+  <style>
+    form {
+      width: 300px;
+      border: 1px solid #eee;
+      padding: 25px;
+    }
+
+    input,
+    textarea {
+      width: 100%;
+      margin-bottom: 10px;
+    }
+
+    span {
+      margin: 10px 0 0;
+      display: inline-block;
+      font-family: cursive;
+    }
+
+    input[type=submit] {
+      height: 40px;
+      background-color: green;
+      color: white;
+    }
+
+    .output {
+      font-size: 1.5em;
+      font-family: fantasy;
+      height : 10px;
+    }
+  </style>
+</head>
+
+<body>
+  <form name="IssueByIdRequest"> <span>Repository Owner Name:</span>
+    <input type="text" id="repoOwner"name="repoOwner" value="">
+    <br><span>Repository Name:</span>
+    <input type="text" id="repo" name="repo" value="">
+    <br><span> Issue ID:</span>
+    <input type="text"id="issueId" name="issueId"></input>
+    <br><span> Requested Issue:</span>
+    <div id = "response" name="response"></div>
+    <br>
+    <input type="submit" id="Requestbutton" value="Request Issue" />
+  </form>
+  <div class="output" id = "response" ></div>
+
+
+  <script>
+    var eventRequest = document.getElementById('Requestbutton')
+  .addEventListener('click', sendRequest);
+  function sendRequest(e) {
+    e.preventDefault();
+    console.log("click event")
+
+    var repoOwner = document.getElementById('repoOwner')
+    var repoOwnerValue = repoOwner.value;
+   
+    var repo = document.getElementById('repo')
+    var repoValue = repo.value;
+
+    var issueId = document.getElementById("issueId");
+    var issueValue = issueId.value;
+
+          
+    var values = {
+      "repoOwner" :repoOwnerValue ,
+      "repo":repoValue ,
+      "issueId":issueValue
+    }
+
+    console.log(values)
+    google.script.run.withSuccessHandler(showResponse).getIssueFromHtml(values);   
+  }
+
+  function showResponse(response){
+    console.log(response);
+    var rerponsediv =  document.getElementById('response');
+    rerponsediv.innerHTML = response;
+  }
+
+
+ 
+  </script>
+</body>
+
+</html>
