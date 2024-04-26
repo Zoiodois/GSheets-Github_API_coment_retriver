@@ -2,7 +2,7 @@ function setKey() {
   //Function to set the keys by the backend
   //Change <tokenValue> for your token key
   //The key is saved to the User propertys
-  PropertiesService.getUserProperties().setProperty('AUTH_TOKEN', "<tokenValue>");
+  PropertiesService.getScriptProperties().setProperty('AUTH_TOKEN', "<tokenValue>");
 
   setUserAgent();
 
@@ -18,7 +18,7 @@ function setUserAgent() {
   var login = keyObject.login;
 
   if (login) {
-    PropertiesService.getUserProperties().setProperty('User-Agent', login);
+    PropertiesService.getScriptProperties().setProperty('User-Agent', login);
   } //Handle exceptions; develop later
 
 }
@@ -28,20 +28,20 @@ function setPaths() {
   //Function to set the Paths for the folder request by the backend
   //Change <tokenValue> for your token key
   //The key is saved to the User propertys
-  PropertiesService.getUserProperties().setProperty('OWNER', "Zoiodois");
-  PropertiesService.getUserProperties().setProperty('REPO', "Imovei22");
+  PropertiesService.getScriptProperties().setProperty('OWNER', "Zoiodois");
+  PropertiesService.getScriptProperties().setProperty('REPO', "URLFetchApp-Exemples---Github-API-Conection");
 }
 //*
 
 function returnUserAgent() {
   //Invoke to return a User-Agent 
-   var userAgent =  PropertiesService.getUserProperties().getProperty('User-Agent');
+   var userAgent =  PropertiesService.getScriptProperties().getProperty('User-Agent');
    return userAgent;
 }
 
 function returnGitToken() {
   //Invoke to recorver the key and use it as variable
-   var token =  PropertiesService.getUserProperties().getProperty('AUTH_TOKEN');
+   var token =  PropertiesService.getScriptProperties().getProperty('AUTH_TOKEN');
    return token;
 }
 //*
@@ -49,13 +49,13 @@ function returnGitToken() {
 
 function returnOwner() {
   //Invoke to recorver the Owner of repo and use it as variable in API path
-   var owner =  PropertiesService.getUserProperties().getProperty('OWNER');
+   var owner =  PropertiesService.getScriptProperties().getProperty('OWNER');
    return owner;
 }
 
 function returnRepo() {
   //Invoke to recorver a repository name and use it as variable in API path
-   var repo =  PropertiesService.getUserProperties().getProperty('REPO');
+   var repo =  PropertiesService.getScriptProperties().getProperty('REPO');
    return repo;
 }
 

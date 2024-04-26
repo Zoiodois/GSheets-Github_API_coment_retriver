@@ -21,7 +21,7 @@ function getHub() {
 function tokenAuthentication() {
   // Token to be veriefied
   var accessToken = returnGitToken();
-
+  Logger.log(accessToken)
 
   // Endpoint of API GitHub. User refers to the token User 
   var url = "https://api.github.com/user";
@@ -31,7 +31,9 @@ function tokenAuthentication() {
     headers: {
       Authorization: "Bearer " + accessToken,
       "Accept": "application/vnd.github.v3+json"
-    }
+    },
+    muteHttpExceptions : true
+
   };
 
   // Make GET request for the API GitHub endpoint
@@ -130,8 +132,8 @@ function postIssueRequest() {
   //Payload for the solicitation
   //Make it dinamyc in future
   var data = {
-    'title': "This is a crazy Test",
-    'body': "Message from the backend"
+    'title': "Change userProrpierties for Script proprieties",
+    'body': "Script proprieties is safer, not avaiable by other user's Scripts"
   }
   // Opções para a solicitação
   var options = {
@@ -209,7 +211,7 @@ function getIssueRequestByNumber() {
 //*
 
 
-//UPDATE an Especif Issues by Id
+//UPDATE an Especifc Issues by Id
 function updateIssueRequest() {
 
   // Acces Token, user Paths declaration
