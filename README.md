@@ -1,3 +1,8 @@
+#New Version; Now with frontEnd avaiable
+Link: https://script.google.com/macros/s/AKfycbyZkulnMO0hh_rABJHMkDXT1-ZaHSkg5oa4jHal0fam/dev
+
+Acces the link. Inform a repository Owner, than a repository name and finally the ID of the issue you want to retrive. The issue's body is gonna be displayed in the Request Issue Box
+
 # URLFetchApp-Exemples---Github-API-Conection
 */
 This Aplication is ment to use Google App Script env for an API conection with GitHub.
